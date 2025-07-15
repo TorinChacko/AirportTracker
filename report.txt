@@ -1,0 +1,19 @@
+BigO of loading flight data and finding flights:
+
+	1. FlightManager::load_flight_data()
+	The average case complexity of FlightManager::load_flight_data() is O(N log M), where:
+
+		N is the number of flights (lines) in the file.
+
+		M is the average number of flights per source airport.
+
+Reading the file line by line (O(N)), parsing each line (O(1) per line), inserting into a map of vectors (O(1) per line on average), and inserting into a map of BSTSets (O(log M) per line on average).
+
+        2. FlightManager::find_flights()
+	The average case complexity of FlightManager::find_flights() is O(F log F), where:
+
+		F is the number of flights associated with the source airport.
+
+
+Finding the source airport in a map (O(1) on average). Using a BSTSet to find departure times within a range (O(log F)).
+Iterating through flights (O(F) in the worst case).
